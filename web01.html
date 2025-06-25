@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>Challenge Web 01</title>
+</head>
+<body>
+  <h2>🕸️ Web 01 – Petit XSS</h2>
+  <p>Voici un champ de commentaire vulnérable :</p>
+
+  <form onsubmit="event.preventDefault(); document.getElementById('output').innerHTML = document.getElementById('input').value;">
+    <input id="input" placeholder="Ton commentaire" required>
+    <button type="submit">Envoyer</button>
+  </form>
+
+  <div id="output" style="margin-top:15px;"></div>
+
+  <p>Essaie d'injecter : <code>&lt;script&gt;alert('XSS')&lt;/script&gt;</code></p>
+
+  <div style="opacity:0.1">flag{easy_xss_exploit}</div>
+</body>
+</html>
